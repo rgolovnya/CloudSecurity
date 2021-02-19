@@ -8,3 +8,6 @@ In this project, you will:
 -	Implement monitoring to identify insecure configurations and malicious activity
 -	Apply methods learned in the course to harden and secure the environment
 -	Design a DevSecOps pipeline
+
+## Deploy the infrastructure
+
