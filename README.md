@@ -51,5 +51,28 @@ Additionally, we have provided a CloudFormation template which will deploy the f
 * IAM role
  
 
- 
+### Task 3: Deployment of the Infrastructure
+
+#### Deploy the S3 buckets:
+```
+aws cloudformation create-stack --region us-east-1 --stack-name c3-s3 --template-body file://provision/c3-s3.yml
+```
+
+#### Deploy the VPC and Subnets:
+```
+aws cloudformation create-stack --region us-east-1 --stack-name c3-vpc --template-body file://provision/c3-vpc.yml
+```
+
+#### Deploy the Application stack:
+```
+aws cloudformation create-stack --region us-east-1 --stack-name c3-app --template-body file://provision/c3-app.yml --parameters ParameterKey=KeyPair,ParameterValue=<add your key pair name here> --capabilities CAPABILITY_IAM
+```
+
+#### Upload data to S3 buckets
+```
+aws s3 cp ./content/free_recipe.txt s3://<BucketNameRecipesFree>/ --region us-east-1
+```
+
+```
+aws s3 cp ./content/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1
 
