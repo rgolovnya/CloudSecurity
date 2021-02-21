@@ -76,3 +76,4 @@ aws s3 cp ./content/free_recipe.txt s3://<BucketNameRecipesFree>/ --region us-ea
 ```
 aws s3 cp ./content/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1
 
+to access your application at: `http://<ApplicationURL>/free_recipe`
