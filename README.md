@@ -79,6 +79,9 @@ aws s3 cp ./deploy/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us
 
 To access the application at: `http://<ApplicationURL>/free_recipe`
 
+http://c1-web-service-alb-2120860333.us-east-1.elb.amazonaws.com/free_recipe
+
+
 #### Delete the stack
 ```
 aws cloudformation delete-stack --region us-east-1 --stack-name c3-app
