@@ -55,25 +55,32 @@ Additionally, we have provided a CloudFormation template which will deploy the f
 
 #### Deploy the S3 buckets:
 ```
-aws cloudformation create-stack --region us-east-1 --stack-name c3-s3 --template-body file://provision/c3-s3.yml
+aws cloudformation create-stack --region us-east-1 --stack-name c3-s3 --template-body file://deploy/c3-s3.yml
 ```
 
 #### Deploy the VPC and Subnets:
 ```
-aws cloudformation create-stack --region us-east-1 --stack-name c3-vpc --template-body file://provision/c3-vpc.yml
+aws cloudformation create-stack --region us-east-1 --stack-name c3-vpc --template-body file://deploy/c3-vpc.yml
 ```
 
 #### Deploy the Application stack:
 ```
-aws cloudformation create-stack --region us-east-1 --stack-name c3-app --template-body file://provision/c3-app.yml --parameters ParameterKey=KeyPair,ParameterValue=<add your key pair name here> --capabilities CAPABILITY_IAM
+aws cloudformation create-stack --region us-east-1 --stack-name c3-app --template-body file://deploy/c3-app.yml --parameters ParameterKey=KeyPair,ParameterValue=<add your key pair name here> --capabilities CAPABILITY_IAM
 ```
 
 #### Upload data to S3 buckets
 ```
-aws s3 cp ./content/free_recipe.txt s3://<BucketNameRecipesFree>/ --region us-east-1
-```
+aws s3 cp ./deploy/free_recipe.txt s3://<BucketNameRecipesFree>/ --region us-east-1
+
 
 ```
-aws s3 cp ./content/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1
+aws s3 cp ./deploy/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1
+```
 
-to access your application at: `http://<ApplicationURL>/free_recipe`
+To access the application at: `http://<ApplicationURL>/free_recipe`
+
+#### Delete the stack
+```
+aws cloudformation delete-stack --region us-east-1 --stack-name c3-app
+```
+
