@@ -71,7 +71,7 @@ aws cloudformation create-stack --region us-east-1 --stack-name c3-app --templat
 #### Upload data to S3 buckets
 ```
 aws s3 cp ./deploy/free_recipe.txt s3://<BucketNameRecipesFree>/ --region us-east-1
-
+```
 
 ```
 aws s3 cp ./deploy/secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1
