@@ -4,5 +4,6 @@ Based on the architecture diagram, and the steps you have taken so far to upload
 least privilege principle. Roles should be specific to the list of resources and actions
 performed upon them.
 
-2. The WebAppSG is open to allow multiple port access from internet to WebSevice instance resides in public subnet. 
-Instead Web Service should reside in Private subnet.
+2. The WebAppSG security group permits ingress traffic from the internet to multiple
+   ports (including 22, 5000 and 80) exposing the server to attacks. It also
+   allows all egress traffic to any IP address.
