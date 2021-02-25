@@ -35,7 +35,7 @@ http://c1-web-service-alb-2120860333.us-east-1.elb.amazonaws.com/free_recipe
 aws cloudformation delete-stack --region us-east-1 --stack-name c3-app
 ```
 
-### Extra
+#### Extra
 
 ```
 aws cloudformation create-stack --region us-east-1 --stack-name c3-s3-solution --template-body file://deploy/c3-s3-solution.yml
@@ -46,14 +46,14 @@ aws cloudformation create-stack --region us-east-1 --stack-name c3-app-solution 
 ```
 
 
-# view the files in the secret recipes bucket
+#### view the files in the secret recipes bucket
 `aws s3 ls  s3://cand-c3-secret-recipes-811631106600/ --region us-east-1`
 
-# download the files
+#### download the files
 `aws s3 cp s3://cand-c3-secret-recipes-811631106600/secret_recipe.txt  .  --region us-east-1`
 
 
-## Uploading data to S3 buckets
+#### Uploading data to S3 buckets
 
 `aws s3 cp free_recipe.txt s3://cand-c3-free-recipes-811631106600/ --region us-east-1`
 `aws s3 cp secret_recipe.txt s3://<BucketNameRecipesSecret>/ --region us-east-1`
@@ -70,6 +70,8 @@ upload: .\free_recipe.txt to s3://cand-c3-free-recipes-305706552515/free_recipe.
 λ aws s3 cp secret_recipe.txt s3://cand-c3-secret-recipes-305706552515/ --region us-east-1
 upload: .\secret_recipe.txt to s3://cand-c3-secret-recipes-305706552515/secret_recipe.txt
 ```
+
+#### SSH
 
 `ssh-keygen -t rsa -b 2048`
 
